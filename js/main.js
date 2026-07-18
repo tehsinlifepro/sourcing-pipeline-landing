@@ -409,18 +409,20 @@ if (MOTION) {
     gsap.ticker.lagSmoothing(0);
   }
 
-  /* hero + final mask reveals */
-  gsap.fromTo('.hero .mask__line',
-    { yPercent: 118 }, { yPercent: 0, duration: 1.05, ease: 'power4.out', stagger: .09, delay: .12 });
-  gsap.fromTo('.final .mask__line',
-    { yPercent: 118 }, {
-      yPercent: 0, duration: 1.25, ease: 'power4.out', stagger: .1,
-      scrollTrigger: { trigger: '#final', start: 'top 72%', once: true }
-    });
+  /* hero + final mask reveals — GSAP owns the transform from the very start.
+     (CSS must never transform-hide these lines: a stylesheet percent offset is
+     parsed by GSAP into a stale pixel y it never clears — the invisible-h1 bug) */
+  gsap.set('.mask__line', { yPercent: 118, visibility: 'visible' });
+  gsap.to('.hero .mask__line',
+    { yPercent: 0, duration: 1.05, ease: 'power4.out', stagger: .09, delay: .12 });
+  gsap.to('.final .mask__line', {
+    yPercent: 0, duration: 1.25, ease: 'power4.out', stagger: .1,
+    scrollTrigger: { trigger: '#final', start: 'top 72%', once: true }
+  });
 
   /* failsafe — a stalled/throttled ticker must never leave the headline hidden */
   setTimeout(() => {
-    gsap.set('.hero .mask__line', { yPercent: 0, overwrite: 'auto' });
+    gsap.set('.hero .mask__line', { yPercent: 0, y: 0, overwrite: 'auto' });
     gsap.set('.hero [data-reveal]', { y: 0, autoAlpha: 1, overwrite: 'auto' });
   }, 2200);
 
