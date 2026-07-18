@@ -190,6 +190,11 @@ const I18N = {
   'final.gloss': { en: '每月只服务两家客户。8 月 1 日开放新名额。先拿免费诊断，看看西方卖家眼中的你。', zh: '每月只服务两家客户。8 月 1 日开放新名额。先拿免费诊断，看看西方卖家眼中的你。' },
   'final.cta': { en: 'Get My Free LinkedIn Audit', zh: '获取我的免费领英诊断' },
   'final.micro': { en: 'The 30-Conversation Guarantee: 30 qualified conversations in 90 days, or Month 4 is free. Still not at 30 by Month 6 — full refund.', zh: '30 对话保证：90 天内 30 个合格对话，否则第 4 个月免费；第 6 个月仍不达标，全额退款。' },
+  'final.alt':     { en: 'Prefer to talk first? Book a call directly →', zh: '想先聊聊？直接预约通话 →' },
+  'final.success': { en: 'Check your inbox — your download is on the way.', zh: '请查收邮箱 —— 你的资料正在路上。' },
+  'final.invalid': { en: 'Please enter a valid email address.', zh: '请输入有效的邮箱地址。' },
+  'final.error':   { en: 'Something went wrong — please try again.', zh: '出错了 —— 请再试一次。' },
+  'final.sending': { en: 'Sending…', zh: '发送中…' },
 
   'footer.brand': { en: 'The Sourcing Pipeline Engine', zh: '获客引擎 · The Sourcing Pipeline Engine' },
   'footer.note': { en: 'Built for Chinese sourcing agencies selling to Western Amazon sellers · 深圳 · 广州 · 义乌', zh: '为服务欧美亚马逊卖家的中国采购代理机构而生 · 深圳 · 广州 · 义乌' }
@@ -234,6 +239,51 @@ function applyLang(l) {
   applyLang(url === 'zh' || url === 'en' ? url : (stored || 'en'));
 })();
 $('#langToggle').addEventListener('click', () => applyLang(lang === 'en' ? 'zh' : 'en'));
+
+/* ============================================================
+   EMAIL CAPTURE — MailerLite, inline success (no redirect)
+   ============================================================ */
+(function initCapture() {
+  const form = $('#auditForm');
+  if (!form) return;
+  const input = form.querySelector('input[name="fields[email]"]');
+  const btn = form.querySelector('button[type="submit"]');
+  const btnLabel = btn.querySelector('span');
+  const msg = $('#captureMsg');
+  const done = $('#captureDone');
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const T = key => (I18N[key] && I18N[key][lang]) || (I18N[key] || {}).en || '';
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    msg.textContent = '';
+    form.classList.remove('is-invalid');
+
+    if (!EMAIL_RE.test(input.value.trim())) {
+      form.classList.add('is-invalid');
+      msg.textContent = T('final.invalid');
+      input.focus();
+      return;
+    }
+
+    btn.disabled = true;
+    btnLabel.textContent = T('final.sending');
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form))
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      form.hidden = true;
+      done.hidden = false;
+    } catch (err) {
+      msg.textContent = T('final.error');
+      btn.disabled = false;
+      btnLabel.textContent = T('final.cta');
+    }
+  });
+})();
 
 /* ============================================================
    NAV — scrolled state, burger overlay, anchor scrolling
