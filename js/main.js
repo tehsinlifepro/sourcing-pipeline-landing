@@ -191,6 +191,7 @@ const I18N = {
   'final.cta': { en: 'Get My Free LinkedIn Audit', zh: '获取我的免费领英诊断' },
   'final.micro': { en: 'The 30-Conversation Guarantee: 30 qualified conversations in 90 days, or Month 4 is free. Still not at 30 by Month 6 — full refund.', zh: '30 对话保证：90 天内 30 个合格对话，否则第 4 个月免费；第 6 个月仍不达标，全额退款。' },
   'final.alt':     { en: 'Prefer to talk first? Book a call directly →', zh: '想先聊聊？直接预约通话 →' },
+  'final.wechat':  { en: 'Prefer WeChat? Scan and chat directly · 微信扫码直接聊', zh: '微信扫码，直接聊 · Scan the QR to chat on WeChat' },
   'final.success': { en: 'Check your inbox — your download is on the way.', zh: '请查收邮箱 —— 你的资料正在路上。' },
   'final.invalid': { en: 'Please enter a valid email address.', zh: '请输入有效的邮箱地址。' },
   'final.error':   { en: 'Something went wrong — please try again.', zh: '出错了 —— 请再试一次。' },
