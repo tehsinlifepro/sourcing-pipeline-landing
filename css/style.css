@@ -925,7 +925,9 @@ html[data-lang="zh"] .hero__title, html[data-lang="zh"] .final__title { line-hei
 
 /* ---------- js-gated initial states (no-JS = fully visible) ---------- */
 html.js [data-reveal] { opacity: 0; }
-html.js .mask__line { transform: translateY(118%); }
+/* hide headline lines via visibility, NOT transform — a stylesheet transform
+   gets parsed by GSAP into a stale pixel offset it never clears */
+html.js .mask__line { visibility: hidden; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1023px) {
