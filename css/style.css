@@ -412,13 +412,16 @@ html[data-lang="zh"] .gloss-inline { display: none; }
   font-family: var(--font-display);
   font-weight: 340;
   font-size: clamp(2.9rem, 6.4vw, 5.4rem);
-  line-height: 1.02;
+  line-height: 1.1;
   letter-spacing: -.025em;
   margin-top: 1.75rem;
 }
 .hero__title em { color: var(--red); font-style: italic; }
-.mask { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
+/* mask window is slightly taller than the line box so serif/CJK
+   ascenders & descenders never get sliced mid-reveal */
+.mask { display: block; overflow: hidden; padding: .13em 0 .1em; margin: -.13em 0 -.1em; }
 .mask__line { display: block; will-change: transform; }
+html[data-lang="zh"] .hero__title, html[data-lang="zh"] .final__title { line-height: 1.22; }
 
 .hero__sub {
   margin-top: 1.9rem;
@@ -883,7 +886,7 @@ html[data-lang="zh"] .gloss-inline { display: none; }
   font-family: var(--font-display);
   font-weight: 340;
   font-size: clamp(3rem, 7.6vw, 6.2rem);
-  line-height: 1.02;
+  line-height: 1.1;
   letter-spacing: -.025em;
   color: var(--cream);
 }
@@ -922,7 +925,7 @@ html[data-lang="zh"] .gloss-inline { display: none; }
 
 /* ---------- js-gated initial states (no-JS = fully visible) ---------- */
 html.js [data-reveal] { opacity: 0; }
-html.js .mask__line { transform: translateY(110%); }
+html.js .mask__line { transform: translateY(118%); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1023px) {
