@@ -1,0 +1,9 @@
+{
+  "name": "sourcing-pipeline-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Sourcing Pipeline Engine — Awwwards-grade landing page for Chinese sourcing agencies (Red Thread concept).",
+  "scripts": {
+    "dev": "node server.mjs"
+  }
+}
