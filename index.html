@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -471,10 +471,21 @@
     <p class="final__sub" data-reveal data-i18n="final.sub">We run a boutique operation — two clients maximum. This isn't fake scarcity. It's how every client gets our full attention. We'll mystery-shop your company as a Western seller and show you exactly what they see. If you don't like what we find, we'll show you how to fix it — whether you work with us or not.</p>
     <p class="gloss gloss--dark" lang="zh-CN" data-reveal data-i18n="final.gloss">每月只服务两家客户。8 月 1 日开放新名额。先拿免费诊断，看看西方卖家眼中的你。</p>
     <div class="final__ctas" data-reveal>
-      <a class="btn btn--primary btn--big" data-cursor="seal" href="https://www.chinawinsglobal.com/12b42762?utm_source=landing&utm_medium=final&utm_campaign=spe" target="_blank" rel="noopener">
-        <span data-i18n="final.cta">Get My Free LinkedIn Audit</span>
-        <span class="btn__orb" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-      </a>
+      <!-- MailerLite capture — action/method/name/hidden fields are binding, do not alter -->
+      <form class="capture" id="auditForm" action="https://assets.mailerlite.com/jsonp/2518242/forms/193374527848187512/subscribe" method="post" novalidate>
+        <div class="capture__row">
+          <input class="capture__input" type="email" name="fields[email]" placeholder="you@company.com" autocomplete="email" aria-label="Email" aria-required="true">
+          <button class="btn btn--primary capture__btn" type="submit" data-cursor="seal"><span data-i18n="final.cta">Get My Free LinkedIn Audit</span></button>
+        </div>
+        <input type="hidden" name="ml-submit" value="1">
+        <input type="hidden" name="anticsrf" value="true">
+        <p class="capture__msg" id="captureMsg" role="alert" aria-live="polite"></p>
+      </form>
+      <div class="capture__done" id="captureDone" hidden>
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m6 10.5 2.5 2.5L14 7.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p data-i18n="final.success">Check your inbox — your download is on the way.</p>
+      </div>
+      <p class="final__alt"><a class="link-underline" href="https://www.chinawinsglobal.com/12b42762?utm_source=landing&utm_medium=final&utm_campaign=spe" target="_blank" rel="noopener"><span data-i18n="final.alt">Prefer to talk first? Book a call directly →</span></a></p>
       <!-- TODO(wechat): add WeChat QR button here when the QR image is ready -->
     </div>
     <p class="final__micro" data-reveal><span data-i18n="final.micro">The 30-Conversation Guarantee: 30 qualified conversations in 90 days, or Month 4 is free. Still not at 30 by Month 6 — full refund.</span></p>
@@ -494,6 +505,6 @@
 <script src="assets/vendor/gsap.min.js" defer></script>
 <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="assets/vendor/lenis.min.js" defer></script>
-<script src="js/main.js?v=3" defer></script>
+<script src="js/main.js?v=4" defer></script>
 </body>
 </html>
