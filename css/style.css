@@ -906,6 +906,53 @@ html[data-lang="zh"] .hero__title, html[data-lang="zh"] .final__title { line-hei
   color: rgba(247, 243, 236, .42);
 }
 
+/* ---------- email capture (MailerLite) ---------- */
+.capture { width: 100%; max-width: 36rem; }
+.capture__row {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .4rem .4rem .4rem 1.35rem;
+  border-radius: 999px;
+  background: rgba(247, 243, 236, .06);
+  box-shadow: inset 0 0 0 1px var(--hairline-dark);
+  transition: box-shadow .35s var(--ease), background-color .35s var(--ease);
+}
+.capture__row:focus-within {
+  background: rgba(247, 243, 236, .09);
+  box-shadow: inset 0 0 0 1px var(--red-soft);
+}
+.capture__input {
+  flex: 1; min-width: 0;
+  background: transparent; border: 0; outline: none;
+  color: var(--cream);
+  font-family: var(--font-body); font-size: .95rem; line-height: 1.4;
+  padding: .8rem 0;
+}
+.capture__input::placeholder { color: rgba(247, 243, 236, .38); }
+.capture__btn { flex: none; }
+.capture.is-invalid .capture__row { box-shadow: inset 0 0 0 1px var(--red); }
+.capture__msg {
+  min-height: 1.5em;
+  margin: .7rem 0 0;
+  font-size: .8rem;
+  color: var(--red-soft);
+  text-align: center;
+}
+.capture__btn[disabled] { opacity: .65; cursor: wait; transform: none !important; }
+.capture__done {
+  display: flex; align-items: center; justify-content: center; gap: .8rem;
+  max-width: 36rem;
+  padding: 1.1rem 1.5rem;
+  border-radius: 1.1rem;
+  background: rgba(47, 158, 110, .12);
+  box-shadow: inset 0 0 0 1px rgba(47, 158, 110, .45);
+  color: #8FE0BB;
+}
+.capture__done svg { width: 1.5rem; height: 1.5rem; flex: none; }
+.capture__done p { font-size: .95rem; font-weight: 500; color: var(--cream); }
+.capture__done[hidden] { display: none; }
+.final__alt { width: 100%; margin-top: 1.6rem; font-size: .84rem; color: rgba(247, 243, 236, .55); }
+.final__alt .link-underline { color: rgba(247, 243, 236, .75); }
+
 /* ---------- footer ---------- */
 .footer {
   background: var(--dark);
@@ -970,6 +1017,8 @@ html.js .mask__line { visibility: hidden; }
   .hero__ctas .btn { width: 100%; }
   .hero__ctas .link-underline { margin-inline: auto; }
   .final__ctas .btn { width: 100%; }
+  .capture__row { flex-direction: column; align-items: stretch; padding: .9rem; border-radius: 1.4rem; gap: .8rem; }
+  .capture__input { padding: .4rem .5rem; text-align: center; }
 }
 
 /* ---------- reduced motion ---------- */
