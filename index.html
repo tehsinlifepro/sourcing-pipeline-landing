@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
@@ -486,7 +486,12 @@
         <p data-i18n="final.success">Check your inbox — your download is on the way.</p>
       </div>
       <p class="final__alt"><a class="link-underline" href="https://www.chinawinsglobal.com/12b42762?utm_source=landing&utm_medium=final&utm_campaign=spe" target="_blank" rel="noopener"><span data-i18n="final.alt">Prefer to talk first? Book a call directly →</span></a></p>
-      <!-- TODO(wechat): add WeChat QR button here when the QR image is ready -->
+      <div class="wechat">
+        <a class="wechat__qr" href="assets/wechat-qr.jpg" target="_blank" rel="noopener" aria-label="Open WeChat QR full size" data-cursor="seal">
+          <img src="assets/wechat-qr.jpg" alt="WeChat QR code — Tehsin" width="560" height="719" loading="lazy">
+        </a>
+        <p class="wechat__txt" data-i18n="final.wechat">Prefer WeChat? Scan and chat directly · 微信扫码直接聊</p>
+      </div>
     </div>
     <p class="final__micro" data-reveal><span data-i18n="final.micro">The 30-Conversation Guarantee: 30 qualified conversations in 90 days, or Month 4 is free. Still not at 30 by Month 6 — full refund.</span></p>
   </div>
@@ -505,6 +510,6 @@
 <script src="assets/vendor/gsap.min.js" defer></script>
 <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="assets/vendor/lenis.min.js" defer></script>
-<script src="js/main.js?v=4" defer></script>
+<script src="js/main.js?v=5" defer></script>
 </body>
 </html>
