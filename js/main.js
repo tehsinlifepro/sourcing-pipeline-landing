@@ -411,12 +411,18 @@ if (MOTION) {
 
   /* hero + final mask reveals */
   gsap.fromTo('.hero .mask__line',
-    { yPercent: 110 }, { yPercent: 0, duration: 1.35, ease: 'power4.out', stagger: .09, delay: .2 });
+    { yPercent: 118 }, { yPercent: 0, duration: 1.05, ease: 'power4.out', stagger: .09, delay: .12 });
   gsap.fromTo('.final .mask__line',
-    { yPercent: 110 }, {
+    { yPercent: 118 }, {
       yPercent: 0, duration: 1.25, ease: 'power4.out', stagger: .1,
       scrollTrigger: { trigger: '#final', start: 'top 72%', once: true }
     });
+
+  /* failsafe — a stalled/throttled ticker must never leave the headline hidden */
+  setTimeout(() => {
+    gsap.set('.hero .mask__line', { yPercent: 0, overwrite: 'auto' });
+    gsap.set('.hero [data-reveal]', { y: 0, autoAlpha: 1, overwrite: 'auto' });
+  }, 2200);
 
   /* generic reveals */
   $$('[data-reveal]').forEach(el => {
