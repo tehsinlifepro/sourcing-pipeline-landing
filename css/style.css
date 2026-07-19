@@ -561,6 +561,8 @@ html[data-lang="zh"] .hero__title, html[data-lang="zh"] .final__title { line-hei
   font-size: 1.05rem;
   color: var(--red-soft);
 }
+.cost-panel__icon { float: right; display: inline-flex; color: var(--red-soft); opacity: .85; }
+.cost-panel__icon svg { width: 1.45rem; height: 1.45rem; stroke-width: 1.75; }
 .cost-panel__title {
   font-family: var(--font-display);
   font-weight: 340;
@@ -594,6 +596,8 @@ html[data-lang="zh"] .hero__title, html[data-lang="zh"] .final__title { line-hei
   color: var(--red);
   flex: none;
 }
+.card-icon { align-self: center; display: inline-flex; color: var(--red); opacity: .85; flex: none; }
+.card-icon svg { width: 1.5rem; height: 1.5rem; stroke-width: 1.75; }
 .stack-card h3 {
   font-family: var(--font-display);
   font-weight: 500;
@@ -638,7 +642,11 @@ html[data-lang="zh"] .hero__title, html[data-lang="zh"] .final__title { line-hei
   background: linear-gradient(90deg, rgba(193, 59, 42, .07), transparent 65%);
   border-top-color: rgba(193, 59, 42, .35);
 }
-.ledger__star { color: var(--red); }
+.ledger__icon { display: inline-flex; color: var(--muted); margin-right: .6rem; vertical-align: -2px; }
+.ledger__icon svg { width: 1.05rem; height: 1.05rem; stroke-width: 1.75; }
+.ledger__icon--win { color: var(--red); }
+.ledger__star { color: var(--red); display: inline-flex; vertical-align: -2px; }
+.ledger__star svg { width: .95rem; height: .95rem; }
 
 /* ---------- ch.4 process ---------- */
 .steps {
@@ -654,6 +662,8 @@ html[data-lang="zh"] .hero__title, html[data-lang="zh"] .final__title { line-hei
   font-size: 3rem; line-height: 1;
   color: rgba(26, 21, 18, .16);
 }
+.step__icon { float: right; display: inline-flex; margin-top: .55rem; color: var(--red); }
+.step__icon svg { width: 1.4rem; height: 1.4rem; stroke-width: 1.75; }
 .step__week {
   font-weight: 600; font-size: .7rem;
   letter-spacing: .16em; text-transform: uppercase;
@@ -703,9 +713,15 @@ html[data-lang="zh"] .hero__title, html[data-lang="zh"] .final__title { line-hei
   line-height: 1.6;
   font-size: .93rem;
 }
-.qualify__list li::before { position: absolute; left: 0; top: 0; font-weight: 600; }
-.qualify__list--yes li::before { content: "→"; color: var(--red); }
-.qualify__list--no  li::before { content: "×"; color: var(--muted); }
+.qualify__list li::before {
+  content: ""; position: absolute; left: 0; top: .3em;
+  width: .95em; height: .95em;
+  background: currentColor;
+  -webkit-mask: center / contain no-repeat;
+          mask: center / contain no-repeat;
+}
+.qualify__list--yes li::before { color: var(--red);   -webkit-mask-image: url("../assets/icons/check.svg"); mask-image: url("../assets/icons/check.svg"); }
+.qualify__list--no  li::before { color: var(--muted); -webkit-mask-image: url("../assets/icons/x.svg");     mask-image: url("../assets/icons/x.svg"); }
 .qualify__col--no h3 { color: var(--muted); }
 .qualify__col--no li { color: var(--muted); }
 
@@ -756,6 +772,9 @@ html[data-lang="zh"] .hero__title, html[data-lang="zh"] .final__title { line-hei
   box-shadow: 0 8px 20px -8px rgba(193, 59, 42, .65);
 }
 .tier .core { display: flex; flex-direction: column; padding: 2.2rem 2rem; }
+.tier__icon { display: inline-flex; color: var(--muted); margin-bottom: 1.1rem; }
+.tier__icon svg { width: 1.5rem; height: 1.5rem; stroke-width: 1.75; }
+.tier__icon--win { color: var(--red); }
 .tier h3 { font-weight: 600; font-size: .82rem; letter-spacing: .22em; }
 .tier--win h3 { color: var(--red); }
 .tier__price {
@@ -776,7 +795,13 @@ html[data-lang="zh"] .hero__title, html[data-lang="zh"] .final__title { line-hei
   font-size: .87rem; line-height: 1.5;
   border-bottom: 1px dashed rgba(26, 21, 18, .1);
 }
-.tier__list li::before { content: "→"; position: absolute; left: 0; color: var(--red); font-size: .8rem; }
+.tier__list li::before {
+  content: ""; position: absolute; left: 0; top: .9em;
+  width: .85em; height: .85em;
+  background: var(--red);
+  -webkit-mask: url("../assets/icons/check.svg") center / contain no-repeat;
+          mask: url("../assets/icons/check.svg") center / contain no-repeat;
+}
 .tier__list li strong { color: var(--red); }
 .pricing__setup { margin-top: 2.75rem; text-align: center; font-size: .85rem; color: var(--muted); }
 
